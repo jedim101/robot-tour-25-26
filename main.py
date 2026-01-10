@@ -38,7 +38,7 @@ turning_pid = {
 }
 
 start_time = time.time()
-target_time = 66
+target_time = 61
 
 # mm/s
 slow_speed = 100
@@ -49,9 +49,9 @@ turn_speed = 1.0
 remaining_distance = 0
 remaining_turns = 0
 
-degrees_per_tile = 360 * 2.42
+degrees_per_tile = 360 * 2.454
 
-current_pos = (1, 0.5)
+current_pos = (4, 0.5)
 
 def main():
 	ev3.screen.draw_text(0, 0, "Starting!")
@@ -60,21 +60,20 @@ def main():
 	path = [
 		# Initial Position
 		{"x": current_pos[0], "y": current_pos[1]},
-  	{"x": 2.5, "y": 3.25},
-		{"x": 4, "y": 4}, # C
-		{"x": 3, "y": 4, "run_backwards": True},
-		{"x": 3, "y": 1}, # A
-		{"x": 4, "y": 1},
-		{"x": 4, "y": 3}, # D
-		{"x": 4, "y": 1, "run_backwards": True},
-		{"x": 2.5, "y": 3.5},
-		{"x": 1, "y": 4.8},
-		{"x": 2, "y": 5.2}, # B
-		{"x": 1, "y": 4.8, "run_backwards": True},
-		{"x": 2, "y": 4},
-		{"x": 2, "y": 2.5},
-		{"x": 2, "y": 3},
-  
+  	{"x": 4, "y": 2},
+    {"x": 5.25, "y": 2.3},
+  	{"x": 4, "y": 3.3}, # D
+  	{"x": 5.25, "y": 2.3, "run_backwards": True},
+   	{"x": 5, "y": 4},
+   	{"x": 2, "y": 4}, # C
+   	{"x": 1, "y": 2}, # B
+   	{"x": 1.5, "y": 3, "run_backwards": True},
+    {"x": 1.5, "y": 1.75},
+    {"x": 3, "y": 1}, # A
+    {"x": 2, "y": 1.5, "run_backwards": True},
+    {"x": 2, "y": 4},
+    {"x": 4, "y": 3.9},
+    {"x": 4, "y": 4},
 	]
 	path = list(map(lambda point: dict(list(point.items()) + [["x", point["x"] - 0.5], ["y", point["y"] - 0.5]]), path))
 	plan_path(path)
@@ -131,7 +130,11 @@ def drive_straight(distance, speed, target_angle=None):
 
 	right_motor.reset_angle(0)
 	left_motor.reset_angle(0)
+#   4		-0.5
 
+# 2		4
+# 4		3.9
+# 4		4
 	while abs(left_motor.angle()) < abs(distance * degrees_per_tile):
 		heading_error = angle_closest_dir(get_angle(), target_angle)
 		turning_speed = heading_pid["kp"] * heading_error + heading_pid["ki"] * (heading_error + last_heading_error) + heading_pid["kd"] * (heading_error - last_heading_error)
