@@ -38,7 +38,7 @@ turning_pid = {
 }
 
 start_time = time.time()
-target_time = 61
+target_time = 15
 
 # mm/s
 slow_speed = 100
@@ -51,7 +51,7 @@ remaining_turns = 0
 
 degrees_per_tile = 360 * 2.454
 
-current_pos = (4, 0.5)
+current_pos = (0, 0)
 
 def main():
 	ev3.screen.draw_text(0, 0, "Starting!")
@@ -60,20 +60,32 @@ def main():
 	path = [
 		# Initial Position
 		{"x": current_pos[0], "y": current_pos[1]},
-  	{"x": 4, "y": 2},
-    {"x": 5.25, "y": 2.3},
-  	{"x": 4, "y": 3.3}, # D
-  	{"x": 5.25, "y": 2.3, "run_backwards": True},
-   	{"x": 5, "y": 4},
-   	{"x": 2, "y": 4}, # C
-   	{"x": 1, "y": 2}, # B
-   	{"x": 1.5, "y": 3, "run_backwards": True},
-    {"x": 1.5, "y": 1.75},
-    {"x": 3, "y": 1}, # A
-    {"x": 2, "y": 1.5, "run_backwards": True},
-    {"x": 2, "y": 4},
-    {"x": 4, "y": 3.9},
-    {"x": 4, "y": 4},
+  	# {"x": 3, "y": 1},
+  	# {"x": 1, "y": 1},
+  	# {"x": 1, "y": 3},
+  	# {"x": 2, "y": 3},
+  	# {"x": 1, "y": 3, "run_backwards": True},
+		# {"x": 1, "y": 2},
+		# {"x": 5, "y": 2},
+		# {"x": 5, "y": 1},
+		# {"x": 5, "y": 3, "run_backwards": True},
+		# {"x": 4, "y": 3},
+		# {"x": 4, "y": 3.8},
+		# {"x": 4, "y": 3, "run_backwards": True},
+		# {"x": 3, "y": 3},
+		# {"x": 3, "y": 4},
+		# {"x": 1, "y": 4},
+		# {"x": 3, "y": 4, "run_backwards": True},
+		# {"x": 3, "y": 1.8},
+  	{"x": -1.5, "y": 9},
+  	{"x": -1.5, "y": 11},
+  	{"x": 0, "y": 19.5},
+  	{"x": 0, "y": 20},
+   
+   
+   
+   
+   	# {"x": 4, "y": 1, "run_backwards": True},
 	]
 	path = list(map(lambda point: dict(list(point.items()) + [["x", point["x"] - 0.5], ["y", point["y"] - 0.5]]), path))
 	plan_path(path)
