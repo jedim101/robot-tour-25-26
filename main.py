@@ -38,20 +38,20 @@ turning_pid = {
 }
 
 start_time = time.time()
-target_time = 15
+target_time = 58
 
 # mm/s
 slow_speed = 100
 fast_speed = 1200
 
-turn_speed = 1.0
+turn_speed = 0.67
 
 remaining_distance = 0
 remaining_turns = 0
 
 degrees_per_tile = 360 * 2.454
 
-current_pos = (0, 0)
+current_pos = (5, 0.5)
 
 def main():
 	ev3.screen.draw_text(0, 0, "Starting!")
@@ -60,30 +60,65 @@ def main():
 	path = [
 		# Initial Position
 		{"x": current_pos[0], "y": current_pos[1]},
-  	# {"x": 3, "y": 1},
-  	# {"x": 1, "y": 1},
-  	# {"x": 1, "y": 3},
-  	# {"x": 2, "y": 3},
-  	# {"x": 1, "y": 3, "run_backwards": True},
-		# {"x": 1, "y": 2},
-		# {"x": 5, "y": 2},
-		# {"x": 5, "y": 1},
-		# {"x": 5, "y": 3, "run_backwards": True},
-		# {"x": 4, "y": 3},
-		# {"x": 4, "y": 3.8},
-		# {"x": 4, "y": 3, "run_backwards": True},
-		# {"x": 3, "y": 3},
-		# {"x": 3, "y": 4},
+		# {"x": 5, "y": 4},
+		# {"x": 2, "y": 4},
+		# {"x": 2, "y": 1},
+		# {"x": 3, "y": 1},
+		# {"x": 1, "y": 1, "run_backwards": True},
 		# {"x": 1, "y": 4},
-		# {"x": 3, "y": 4, "run_backwards": True},
-		# {"x": 3, "y": 1.8},
-  	{"x": -1.5, "y": 9},
-  	{"x": -1.5, "y": 11},
-  	{"x": 0, "y": 19.5},
-  	{"x": 0, "y": 20},
-   
-   
-   
+		# {"x": 1, "y": 2, "run_backwards": True},
+		# {"x": 2, "y": 1.8},
+		# {"x": 2, "y": 2},
+
+		# ----------
+
+		{"x": 4, "y": 1.5},
+		{"x": 4, "y": 2},
+		{"x": 3.5, "y": 2.5},
+		{"x": 4, "y": 3},
+		{"x": 4, "y": 1.5},
+		{"x": 4.5, "y": 1},
+		{"x": 5, "y": 1.5},
+		{"x": 5, "y": 3.5},
+		{"x": 4.5, "y": 4},
+		{"x": 2.5, "y": 4},
+		{"x": 2, "y": 3.5},
+		{"x": 2, "y": 1.5},
+		{"x": 2.5, "y": 0.8},
+		{"x": 3, "y": 0.8},
+		# # Bottle in B
+
+		# {"x": 2, "y": 1, "run_backwards": True},
+		# {"x": 2, "y": 4},
+		# {"x": 5, "y": 4},
+		# {"x": 5, "y": 1},
+		# {"x": 4, "y": 1},
+		# {"x": 4, "y": 2},
+		# {"x": 3.5, "y": 2.5},
+		# {"x": 3.5, "y": 2},
+		# {"x": 4, "y": 2},
+		# {"x": 4, "y": 1.5},
+		# {"x": 4.5, "y": 1},
+		# {"x": 5, "y": 1.5},
+		# {"x": 5, "y": 3.5},
+		# {"x": 4.5, "y": 4},
+		# {"x": 2.5, "y": 4},
+		# {"x": 2, "y": 3.5},
+		# {"x": 2, "y": 2},
+		# {"x": 1, "y": 1},
+		# # Bottle in D
+		# {"x": 1, "y": 4, "run_backwards": True},
+		# {"x": 1, "y": 2,},
+		# {"x": 2, "y": 1.8},
+		# {"x": 2, "y": 2},
+
+
+		{"x": 1, "y": 1, "run_backwards": True},
+		{"x": 1, "y": 4},
+		{"x": 1, "y": 2, "run_backwards": True},
+		{"x": 2, "y": 1.8},
+		{"x": 2, "y": 2},
+
    
    	# {"x": 4, "y": 1, "run_backwards": True},
 	]
